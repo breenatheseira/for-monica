@@ -3,3 +3,6 @@ Run the project
 
 Building the project (using yarn build for production)
 - npx parcel build index.html
+
+References:
+- Implementing Tailwind with Parcel: https://tailwindcss.com/docs/guides/parcel
