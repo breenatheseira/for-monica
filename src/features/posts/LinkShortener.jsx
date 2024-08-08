@@ -1,9 +1,9 @@
-import MainHeading from "../../components/MainHeading.jsx";
+import Card from "../../components/Card.jsx";
 
 export default LinkShortener = () => {
   return (
     <>
-      <MainHeading text='Link Shortener' />
+      <Card headingText='Link Shortener' />
     </>
   )
 }

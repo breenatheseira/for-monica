@@ -1,9 +1,9 @@
-import MainHeading from "../../components/MainHeading.jsx";
+import Card from "../../components/Card.jsx";
 
 export default Login = () => {
   return (
     <>
-      <MainHeading text='Login' />
+      <Card headingText='Login' />
     </>
   )
 }

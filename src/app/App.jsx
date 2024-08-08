@@ -20,7 +20,7 @@ const AppLayout = () => {
       <div className='flex-none'>
         <Header />
       </div>
-      <div className='grow'>
+      <div className='grow bg-slate-200'>
         <Outlet />
       </div>
       <div className='flex-none'>

@@ -7,7 +7,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-slate-300 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-2">
+    <header className="bg-slate-50 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-2">
       <header className="flex item-center justify-between px-4 py-2 sm:p-0">
         <div className="flex">
           <img className="h-8" src={reactLogo} alt="react logo" />
@@ -29,8 +29,8 @@ const Header = () => {
       <div className={`px-2 pt-2 pb-4 ${menuOpen ? 'block' : 'hidden'} sm:flex sm:text-lg`}>
         <nav>
           <ul className='sm:flex'>
-            <li><Link to="scraper" className="block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-slate-200 sm:mr-2" relative="path">Scraper</Link></li>
-            <li><Link to="link-shortener" className="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-slate-200 sm:mt-0" relative="path">Link Shortener</Link></li>
+            <li><Link to="scraper" className="block px-2 py-1 text-gray-700 font-semibold rounded focus:outline-none focus:bg-slate-200 hover:bg-slate-200 sm:mr-2" relative="path">Scraper</Link></li>
+          <li><Link to="link-shortener" className="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded focus:outline-none focus:bg-slate-200 hover:bg-slate-200 sm:mt-0" relative="path">Link Shortener</Link></li>
           </ul>
         </nav>
       </div>
