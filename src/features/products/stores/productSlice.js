@@ -6,6 +6,8 @@ import {
 
 import api from '../../../utils/api.js'
 
+import { serializeProduct } from './productSerializer.js';
+
 const productsAdapter = createEntityAdapter();
 
 const initialState = productsAdapter.getInitialState({
@@ -35,5 +37,10 @@ export default productsSlice.reducer;
 
 export const fetchProduct = createAsyncThunk('products/fetchProduct', async (url) => {
   let result = await api.getProduct(url)
-  return result.data
+  return serializeProduct(result.data)
 })
+
+export const {
+  selectAll: selectAllProducts,
+  selectTotal: selectProductsTotal,
+} = productsAdapter.getSelectors(state => state.products)

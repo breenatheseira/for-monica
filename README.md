@@ -6,3 +6,4 @@ Building the project (using yarn build for production)
 
 References:
 - Implementing Tailwind with Parcel: https://tailwindcss.com/docs/guides/parcel
+- Implementing Persistance in case of page refreshes: https://stackoverflow.com/questions/35305661/where-to-write-to-localstorage-in-a-redux-app
