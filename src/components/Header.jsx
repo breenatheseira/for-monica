@@ -30,7 +30,7 @@ const Header = () => {
         <nav>
           <ul className='sm:flex'>
             <li><Link to="scraper" className="block px-2 py-1 text-gray-700 font-semibold rounded focus:outline-none focus:bg-slate-200 hover:bg-slate-200 sm:mr-2" relative="path">Scraper</Link></li>
-          <li><Link to="link-shortener" className="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded focus:outline-none focus:bg-slate-200 hover:bg-slate-200 sm:mt-0" relative="path">Link Shortener</Link></li>
+            <li><Link to="link-shortener" className="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded focus:outline-none focus:bg-slate-200 hover:bg-slate-200 sm:mt-0" relative="path">Link Shortener</Link></li>
           </ul>
         </nav>
       </div>

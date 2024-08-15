@@ -8,9 +8,9 @@ import {
   Outlet,
 } from 'react-router-dom';
 
-import Login from '../features/auth/Login.jsx';
-import Scraper from '../features/listings/Scraper.jsx';
-import LinkShortener from '../features/posts/LinkShortener.jsx';
+import Login from './routes/Login.jsx';
+import Scraper from './routes/Scraper.jsx';
+import LinkShortener from './routes/LinkShortener.jsx';
 
 const basePath = process.env.URL_PATH;
 
