@@ -4,7 +4,7 @@ import {
   createAsyncThunk
 } from '@reduxjs/toolkit';
 
-// import { api } from '../../../utils/api.js'
+import api from '../../../utils/api.js'
 
 const productsAdapter = createEntityAdapter();
 
@@ -18,14 +18,14 @@ const productsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchProduct.pending, (state, action) => {
+      .addCase(fetchProduct.pending, (state) => {
         state.status = 'loading'
       })
       .addCase(fetchProduct.fulfilled, (state, action) => {
-        productsAdapter.addOne
+        productsAdapter.addOne(state, action.payload)
         state.status = 'succeeded'
       })
-      .addCase(fetchProduct.rejected, (state, action) => {
+      .addCase(fetchProduct.rejected, (state) => {
         state.status = 'failed'
       })
   }
@@ -34,7 +34,6 @@ const productsSlice = createSlice({
 export default productsSlice.reducer;
 
 export const fetchProduct = createAsyncThunk('products/fetchProduct', async (url) => {
-  console.log('2. fetchProduct: ', url)
-  // const response = await api.get(url)
-  console.log(response)
+  let result = await api.getProduct(url)
+  return result.data
 })

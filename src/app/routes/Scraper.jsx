@@ -2,7 +2,7 @@ import LinkInput from '../../components/LinkInput.jsx';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { fetchProduct } from '../../features/listings/stores/productSlice.js'
+import { fetchProduct } from '../../features/products/stores/productSlice.js'
 
 export default Scraper = () => {
   const [showInput, setShowInput] = useState(true);
