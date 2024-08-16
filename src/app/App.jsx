@@ -20,8 +20,10 @@ const AppLayout = () => {
       <div className='flex-none'>
         <Header />
       </div>
-      <div className='grow bg-slate-200'>
-        <Outlet />
+      <div className='grow bg-slate-200 flex justify-center'>
+        <div className='w-full max-w-5xl'>
+          <Outlet />
+        </div>
       </div>
       <div className='flex-none'>
         <Footer />
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
       path: '/', 
       element: <AppLayout />,
       children: [
-        { path: 'scraper', element: <Scraper />},
+        { path: 'edm-scraper', element: <Scraper />},
         { path: 'link-shortener', element: <LinkShortener />},
       ]
     },

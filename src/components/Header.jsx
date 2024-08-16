@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import reactLogo from '../../public/react.svg'
 
 import { Link } from 'react-router-dom';
@@ -29,8 +29,30 @@ const Header = () => {
       <div className={`px-2 pt-2 pb-4 ${menuOpen ? 'block' : 'hidden'} sm:flex sm:text-lg`}>
         <nav>
           <ul className='sm:flex'>
-            <li><Link to="scraper" className="block px-2 py-1 text-gray-700 font-semibold rounded focus:outline-none focus:bg-slate-200 hover:bg-slate-200 sm:mr-2" relative="path">Scraper</Link></li>
-            <li><Link to="link-shortener" className="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded focus:outline-none focus:bg-slate-200 hover:bg-slate-200 sm:mt-0" relative="path">Link Shortener</Link></li>
+            <li>
+              <Link 
+                to="edm-scraper" 
+                relative="path"
+                className={`block px-2 py-1 sm:mr-2 
+                  text-gray-700 font-semibold rounded 
+                  focus:outline-none focus:bg-slate-200 
+                  hover:bg-slate-200`}
+              >
+                EDM Scraper
+              </Link>
+              </li>
+            <li>
+              <Link 
+                to="link-shortener" 
+                className={`mt-1 block px-2 py-1 sm:mt-0
+                  text-gray-700 font-semibold rounded 
+                  focus:outline-none focus:bg-slate-200 
+                  hover:bg-slate-200`}
+                relative="path"
+              >
+                Link Shortener
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

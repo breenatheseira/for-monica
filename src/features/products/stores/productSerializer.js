@@ -7,11 +7,13 @@ export const serializeProduct = (product) => {
   console.log(product)
   const serializedProduct = {
     ...product,
-    newPrice: product.new_price,
-    oldPrice: product.old_price,
-    images: product.image_urls
+    newPrice: product.new_price + ' ' + product.currency,
+    oldPrice: product.old_price + ' ' + product.currency,
+    images: product.image_urls,
+    display: true
   }
 
+  delete serializedProduct.currency
   delete serializedProduct.new_price
   delete serializedProduct.old_price
   delete serializedProduct.image_urls
