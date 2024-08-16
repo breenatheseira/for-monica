@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import reactLogo from '../../public/react.svg'
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,28 +30,26 @@ const Header = () => {
         <nav>
           <ul className='sm:flex'>
             <li>
-              <Link 
+              <NavLink 
                 to="edm-scraper" 
                 relative="path"
                 className={`block px-2 py-1 sm:mr-2 
                   text-gray-700 font-semibold rounded 
-                  focus:outline-none focus:bg-slate-200 
                   hover:bg-slate-200`}
               >
                 EDM Scraper
-              </Link>
+              </NavLink>
               </li>
             <li>
-              <Link 
+              <NavLink 
                 to="link-shortener" 
                 className={`mt-1 block px-2 py-1 sm:mt-0
                   text-gray-700 font-semibold rounded 
-                  focus:outline-none focus:bg-slate-200 
                   hover:bg-slate-200`}
                 relative="path"
               >
                 Link Shortener
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
