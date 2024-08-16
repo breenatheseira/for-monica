@@ -1,10 +1,12 @@
-const LinkInput = ({ linkText, onTextChange, placeholder }) => {
+const LinkInput = ({ linkText, onTextChange, placeholder, autoFocus }) => {
+
   function handleOnChange(e){
     onTextChange(e.target.value.trim())
   }
 
   return (
     <input
+      autoFocus={autoFocus}
       type="text"
       placeholder={placeholder}
       value={linkText}
