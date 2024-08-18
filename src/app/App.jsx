@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 
@@ -11,6 +11,7 @@ import {
 import Login from './routes/Login.jsx';
 import Scraper from './routes/Scraper.jsx';
 import LinkShortener from './routes/LinkShortener.jsx';
+import api from '../utils/api.js';
 
 const basePath = process.env.URL_PATH;
 
@@ -32,7 +33,8 @@ const AppLayout = () => {
   )
 }
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
     { 
       path: '/', 
       element: <AppLayout />,
@@ -49,5 +51,16 @@ const router = createBrowserRouter([
 )
 
 export default function App() {
+
+  useEffect(() => {
+    api.wakeServer()
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }, [])
+
   return <RouterProvider router={router} />
 }

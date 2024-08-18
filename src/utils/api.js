@@ -11,6 +11,7 @@ const config = {
 }
 
 const paths = {
+  wakeServer: process.env.SERVER_ENDPOINT + '/up',
   getOneProduct: (productUrl) => process.env.SCRAPER_URL + '/?url=' + productUrl,
 }
 
@@ -32,6 +33,9 @@ const api = {
   async getProduct(url){
     return callEndpoint(paths.getOneProduct(url))
   },
+  async wakeServer(){
+    return callEndpoint(paths.wakeServer)
+  }
 }
 
 export default api;
