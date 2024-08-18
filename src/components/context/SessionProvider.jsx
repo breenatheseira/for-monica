@@ -1,12 +1,10 @@
 import SessionContext from './SessionContext';
 import React, { useEffect, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../../utils/api';
-import { useSessionStorage } from '../../app/hooks/useSessionStorage';
+import { useSessionStorage } from '../../hooks/useSessionStorage';
 
 export default SessionProvider = ({ children }) => {
   const [session, setSession] = useSessionStorage('session', {})
-  const navigate = useNavigate()
   console.log('session: ', session)
   const { token, serverStatus } = session
 
@@ -46,12 +44,6 @@ export default SessionProvider = ({ children }) => {
   useEffect(() => {
     // is the server awake yet
     isServerUp()
-
-    // sessionStorage is null on the first load
-    //   all values are stringified too
-    if(!token){
-      navigate('/login', { replace: true })
-    }
   })
 
   const currentSession = useMemo(() => ({

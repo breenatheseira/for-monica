@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
+  Navigate,
   Route
 } from 'react-router-dom';
 
@@ -11,17 +12,22 @@ import Login from './routes/Login.jsx';
 import Scraper from './routes/Scraper.jsx';
 import LinkShortener from './routes/LinkShortener.jsx';
 import Layout from './Layout.jsx'
+import SessionProvider from '../components/context/SessionProvider.jsx';
+import PrivateRoutes from './routes/PrivateRoutes.jsx';
 
 const basePath = process.env.URL_PATH;
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path='/' element={<Layout/>}>
-        <Route path='edm-scraper' element={<Scraper />} />
-        <Route path='link-shortener' element={<LinkShortener />} />
+      <Route element={<Layout/>}>
+        <Route index element={<Login />} />
+          <Route element={<PrivateRoutes />}>
+          <Route path='edm-scraper' element={<Scraper />} />
+          <Route path='link-shortener' element={<LinkShortener />} />
+        </Route>
       </Route>
-      <Route path='*' element={<Login />} />
+      <Route path='*' element={<Navigate to='/' replace />} />
     </Route>
   ),
   {
@@ -30,5 +36,9 @@ const router = createBrowserRouter(
 )
 
 export default function App() {
-  return <RouterProvider router={router} />
+  return (
+    <SessionProvider>
+      <RouterProvider router={router} />
+    </SessionProvider>
+  )
 }
