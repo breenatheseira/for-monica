@@ -1,4 +1,4 @@
-const LinkInput = ({ linkText, onTextChange, placeholder, autoFocus }) => {
+const Input = ({ linkText, onTextChange, placeholder, autoFocus }) => {
 
   function handleOnChange(e){
     onTextChange(e.target.value.trim())
@@ -16,4 +16,4 @@ const LinkInput = ({ linkText, onTextChange, placeholder, autoFocus }) => {
   )
 }
 
-export default LinkInput
+export default Input

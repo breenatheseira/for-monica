@@ -1,4 +1,4 @@
-import LinkInput from '../../components/LinkInput.jsx';
+import Input from '../../components/Input.jsx';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -49,7 +49,7 @@ export default Scraper = () => {
         </CardHeading>
         <CardBody>
           { showInput 
-            ? <LinkInput 
+            ? <Input 
                 autoFocus={true}
                 linkText={linkText}
                 onTextChange={handleTextChange}

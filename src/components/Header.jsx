@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import reactLogo from '../../public/react.svg'
 
 import { NavLink } from 'react-router-dom';

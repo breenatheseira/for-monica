@@ -1,10 +1,15 @@
-import { useContext, useEffect } from "react"
-import SessionContext from "../../components/context/SessionContext.jsx"
+import { useState, useEffect } from 'react';
+import { useSession } from '../../hooks/useSession.jsx'
 import { Navigate, Outlet } from "react-router-dom";
 
 export default PrivateRoutes = () => {
-  const currentSession = useContext(SessionContext);
-  const { session } = currentSession;
+  const { session, getToken } = useSession();
+  const [token, setToken] = useState(session.token)
 
-  return session.token ? <Outlet /> : <Navigate to='login' replace />
+  useEffect(()=>{
+    console.log('session.token: ', session.token)
+    setToken(getToken)
+  }, [session.token])
+
+  return token ? <Outlet /> : <Navigate to='login' replace />
 }
