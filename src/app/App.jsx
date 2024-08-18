@@ -1,47 +1,26 @@
-import React, { useEffect } from 'react';
-import Header from '../components/Header.jsx';
-import Footer from '../components/Footer.jsx';
+import React from 'react';
 
 import {
   createBrowserRouter,
-  RouterProvider,
-  Outlet,
+  RouterProvider
 } from 'react-router-dom';
 
 import Login from './routes/Login.jsx';
 import Scraper from './routes/Scraper.jsx';
 import LinkShortener from './routes/LinkShortener.jsx';
-import api from '../utils/api.js';
+import Layout from './Layout.jsx'
 
 const basePath = process.env.URL_PATH;
-
-const AppLayout = () => {
-  return (
-    <div className='flex flex-col h-screen'>
-      <div className='flex-none'>
-        <Header />
-      </div>
-      <div className='grow bg-slate-200 flex justify-center'>
-        <div className='w-full max-w-5xl'>
-          <Outlet />
-        </div>
-      </div>
-      <div className='flex-none'>
-        <Footer />
-      </div>
-    </div>
-  )
-}
 
 const router = createBrowserRouter(
   [
     { 
       path: '/', 
-      element: <AppLayout />,
+      element: <Layout />,
       children: [
         { path: 'edm-scraper', element: <Scraper />},
         { path: 'link-shortener', element: <LinkShortener />},
-      ]
+      ],
     },
     { path: '*', element: <Login />},
   ],
@@ -51,16 +30,5 @@ const router = createBrowserRouter(
 )
 
 export default function App() {
-
-  useEffect(() => {
-    api.wakeServer()
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }, [])
-
   return <RouterProvider router={router} />
 }
