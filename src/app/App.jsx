@@ -2,7 +2,9 @@ import React from 'react';
 
 import {
   createBrowserRouter,
-  RouterProvider
+  createRoutesFromElements,
+  RouterProvider,
+  Route
 } from 'react-router-dom';
 
 import Login from './routes/Login.jsx';
@@ -13,17 +15,15 @@ import Layout from './Layout.jsx'
 const basePath = process.env.URL_PATH;
 
 const router = createBrowserRouter(
-  [
-    { 
-      path: '/', 
-      element: <Layout />,
-      children: [
-        { path: 'edm-scraper', element: <Scraper />},
-        { path: 'link-shortener', element: <LinkShortener />},
-      ],
-    },
-    { path: '*', element: <Login />},
-  ],
+  createRoutesFromElements(
+    <Route>
+      <Route path='/' element={<Layout/>}>
+        <Route path='edm-scraper' element={<Scraper />} />
+        <Route path='link-shortener' element={<LinkShortener />} />
+      </Route>
+      <Route path='*' element={<Login />} />
+    </Route>
+  ),
   {
     basename: basePath
   }
