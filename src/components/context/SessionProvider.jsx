@@ -5,11 +5,8 @@ import { useSessionStorage } from '../../hooks/useSessionStorage';
 
 export default SessionProvider = ({ children }) => {
   const [session, setSession] = useSessionStorage('session', {})
-  console.log('session: ', session)
-  const { token, serverStatus } = session
 
   const setToken = async (data) => {
-    console.log('setToken: ', data)
     setSession({
       ...session,
       token: data
@@ -17,7 +14,6 @@ export default SessionProvider = ({ children }) => {
   }
 
   const setServerStatus = async (data) => {
-    console.log('serverIsLive')
     setSession({
       ...session,
       serverStatus: data
@@ -25,11 +21,11 @@ export default SessionProvider = ({ children }) => {
   }
   
   const isServerUp = async () => {
-    if(!serverStatus){
+    if(!session.serverStatus){
       try {
         const response = await api.wakeServer()
         if(response.status == 'ok'){
-          console.log('setting server status')
+          console.debug('setting server status')
           return await setServerStatus(true)
         }
         throw new Error(response.statusText)
@@ -44,7 +40,7 @@ export default SessionProvider = ({ children }) => {
   useEffect(() => {
     // is the server awake yet
     isServerUp()
-  })
+  },[])
 
   const currentSession = useMemo(() => ({
     session,

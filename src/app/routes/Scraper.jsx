@@ -50,7 +50,7 @@ export default Scraper = () => {
         <CardBody>
           { showInput 
             ? <Input 
-                autoFocus={true}
+                autoFocus
                 linkText={linkText}
                 onTextChange={handleTextChange}
                 placeholder='https://www.shopjoyeus.com/collections/dresses/products/brianna-dress-more-colors-9'

@@ -1,4 +1,4 @@
-const Input = ({ linkText, onTextChange, placeholder, autoFocus }) => {
+const Input = ({ linkText, onTextChange, placeholder, autoFocus, customClass, type = 'text' }) => {
 
   function handleOnChange(e){
     onTextChange(e.target.value.trim())
@@ -7,11 +7,13 @@ const Input = ({ linkText, onTextChange, placeholder, autoFocus }) => {
   return (
     <input
       autoFocus={autoFocus}
-      type="text"
+      type={type}
       placeholder={placeholder}
       value={linkText}
       onChange={handleOnChange}
-      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:outline-blue-600 focus:border-blue-500 block w-full"
+      className={`border border-gray-300 text-gray-900 
+        text-sm bg-gray-50 rounded-lg p-2.5 block w-full
+        focus:outline-blue-600 focus:border-blue-500 ${customClass}`}
     />
   )
 }
