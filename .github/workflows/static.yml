@@ -23,6 +23,7 @@ concurrency:
 env:
   USERNAME: ${{ github.repository_owner }}
   URL_PATH: /${{ github.event.repository.name }}/
+  SERVER_ENDPOINT: ${{ vars.SERVER_ENDPOINT }}
 
 jobs:
   # Single deploy job since we're just deploying
