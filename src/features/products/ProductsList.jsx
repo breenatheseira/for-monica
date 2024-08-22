@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectAllProducts } from './stores/productSlice.js';
 import ProductItem from './ProductItem.jsx'
 
-const ProductsList = () => {
+export default function ProductsList() {
   const products = useSelector(selectAllProducts)
   
   return (
@@ -17,5 +17,3 @@ const ProductsList = () => {
     </div>
   )
 }
-
-export default ProductsList;

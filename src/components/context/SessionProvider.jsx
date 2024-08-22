@@ -3,7 +3,7 @@ import React, { useEffect, useMemo } from 'react';
 import api from '../../utils/api';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 
-export default SessionProvider = ({ children }) => {
+export default function SessionProvider ({ children }){
   const [session, setSession] = useSessionStorage('session', {})
 
   const setToken = async (data) => {

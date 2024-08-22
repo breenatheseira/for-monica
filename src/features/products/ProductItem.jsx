@@ -6,12 +6,12 @@ import Title from '../../components/card/Title.jsx';
 import ClickToCopyText from '../../components/ClickToCopyText.jsx';
 import ProductImage from './ProductImage.jsx';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { hideProduct } from './stores/productSlice.js'
 import SecondaryButton from '../../components/button/SecondaryButton.jsx';
 
-const ProductItem = ({product}) => {
+export default function ProductItem({product}) {
   const [showImages, setShowImages] = useState(true)
   const dispatch = useDispatch();
 
@@ -68,5 +68,3 @@ const ProductItem = ({product}) => {
     </>
   )
 }
-
-export default ProductItem;

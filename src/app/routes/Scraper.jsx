@@ -12,7 +12,7 @@ import SecondaryButton from '../../components/button/SecondaryButton.jsx';
 import CopyProductLinksButton from '../../features/products/CopyProductLinksButton.jsx';
 import DeleteProductsButton from '../../features/products/DeleteProductsButton.jsx';
 
-export default Scraper = () => {
+export default function Scraper() {
   const [showInput, setShowInput] = useState(true);
   const [linkText, setLinkText] = useState('');
   const totalProducts = useSelector(selectProductsTotal);  

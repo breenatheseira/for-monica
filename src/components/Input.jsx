@@ -1,4 +1,13 @@
-const Input = ({ linkText, onTextChange, placeholder, autoFocus, customClass, type = 'text' }) => {
+import React from 'react'
+
+export default function Input ({ 
+    linkText, 
+    onTextChange, 
+    placeholder, 
+    autoFocus, 
+    customClass, 
+    type = 'text' 
+  }){
 
   function handleOnChange(e){
     onTextChange(e.target.value.trim())
@@ -17,5 +26,3 @@ const Input = ({ linkText, onTextChange, placeholder, autoFocus, customClass, ty
     />
   )
 }
-
-export default Input

@@ -1,6 +1,7 @@
+import React from 'react'
 import copyToClipboard from "../utils/copyToClipboard"
 
-export default ClickToCopyText = ({value, customClass}) => {
+export default function ClickToCopyText ({value, customClass}) {
   function copyText(){
     copyToClipboard(value);
     console.log('copied: ', value);

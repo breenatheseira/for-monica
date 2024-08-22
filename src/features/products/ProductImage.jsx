@@ -1,6 +1,7 @@
+import React from 'react';
 import copyToClipboard from '../../utils/copyToClipboard.js';
 
-export default ProductImage = ({url}) => {
+export default function ProductImage({url}) {
 
   function copyUrl(){
     copyToClipboard(url);

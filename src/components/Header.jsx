@@ -2,9 +2,11 @@ import React, { useState, useContext } from 'react';
 import reactLogo from '../../public/react.svg'
 
 import { NavLink } from 'react-router-dom';
+import { useSession } from '../hooks/useSession';
 
-const Header = () => {
+export default function Header(){
   const [menuOpen, setMenuOpen] = useState(false);
+  const { session } = useSession();
 
   return (
     <header className="bg-slate-50 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-2">
@@ -26,37 +28,39 @@ const Header = () => {
           </button>
         </div>
       </header>
-      <div className={`px-2 pt-2 pb-4 ${menuOpen ? 'block' : 'hidden'} sm:flex sm:text-lg`}>
-        <nav>
-          <ul className='sm:flex'>
-            <li>
-              <NavLink 
-                to="edm-scraper" 
-                relative="path"
-                className={`block px-2 py-1 sm:mr-2 
-                  text-gray-700 font-semibold rounded 
-                  hover:bg-slate-200`}
-              >
-                EDM Scraper
-              </NavLink>
-              </li>
-            <li>
-              <NavLink 
-                to="link-shortener" 
-                className={`mt-1 block px-2 py-1 sm:mt-0
-                  text-gray-700 font-semibold rounded 
-                  hover:bg-slate-200`}
-                relative="path"
-              >
-                Link Shortener
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      
+      { session.token 
+        ? (
+          <div className={`px-2 pt-2 pb-4 ${menuOpen ? 'block' : 'hidden'} sm:flex sm:text-lg`}>
+            <nav>
+              <ul className='sm:flex'>
+                <li>
+                  <NavLink 
+                    to="edm-scraper" 
+                    relative="path"
+                    className={`block px-2 py-1 sm:mr-2 
+                      text-gray-700 font-semibold rounded 
+                      hover:bg-slate-200`}
+                  >
+                    EDM Scraper
+                  </NavLink>
+                  </li>
+                <li>
+                  <NavLink 
+                    to="link-shortener" 
+                    className={`mt-1 block px-2 py-1 sm:mt-0
+                      text-gray-700 font-semibold rounded 
+                      hover:bg-slate-200`}
+                    relative="path"
+                  >
+                    Link Shortener
+                  </NavLink>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        )
+        : (<></>)
+      }
     </header>
   )
 }
-
-export default Header;

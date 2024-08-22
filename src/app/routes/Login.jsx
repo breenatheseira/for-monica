@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useSession } from '../../hooks/useSession.jsx'
 import Card from '../../components/card/Card.jsx';
 import CardHeading from '../../components/card/CardHeading.jsx';
@@ -9,7 +9,7 @@ import TertiaryButton from '../../components/button/TertiaryButton.jsx';
 import api from '../../utils/api.js';
 import { useNavigate } from 'react-router-dom';
 
-export default Login = () => {
+export default function Login() {
   const [identifier, setIdentifier] = useState('')
   const [code, setCode] = useState('')
   const [showPassword, setShowPassword] = useState(false)

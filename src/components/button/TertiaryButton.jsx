@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function TertiaryButton({ handleOnHover, handleOnClick, disabled, customClass, children }){
   return (
     <button
